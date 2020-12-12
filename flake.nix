@@ -2,7 +2,7 @@
   description = "Data Science Environment";
   inputs = {
     flake-utils.url = "github:numtide/flake-utils";
-    nixpkgs.url = "nixpkgs/703f052de185c3dd1218165e62b105a68e05e15f";
+    nixpkgs.url = "nixpkgs/7ff5e241a2b96fff7912b7d793a06b4374bd846c";
     logseq = { url = "github:logseq/logseq"; flake = false; };
   };
 

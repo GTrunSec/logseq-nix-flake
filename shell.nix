@@ -26,7 +26,7 @@ let
     '';
     installPhase = ''
     mkdir -p $out
-    cp -r * $out
+    cp -r node_modules $out
     '';
   };
 in
@@ -35,9 +35,11 @@ mkShell {
     yarn clojure nodejs
   ];
   shellHook = ''
-  export PATH=${yarnBuild}/node_modules/.bin/:$PATH
-  cp -rf ${yarnBuild} src/
-  chmod -R +rw src/
-  cd src && yarn watch
+  cp -r ${logseq} ../logseq-src
+  chmod -R +rw ../logseq-src
+  cp -r ${yarnBuild}/node_modules ../logseq-src
+  chmod -R +rw ../logseq-src/node_modules
+  cd ../logseq-flake
+  yarn && yarn watch
   '';
 }
