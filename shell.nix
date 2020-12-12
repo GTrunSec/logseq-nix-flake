@@ -35,11 +35,11 @@ mkShell {
     yarn clojure nodejs
   ];
   shellHook = ''
-  cp -r ${logseq} ../logseq-src
-  chmod -R +rw ../logseq-src
-  cp -r ${yarnBuild}/node_modules ../logseq-src
-  chmod -R +rw ../logseq-src/node_modules
-  cd ../logseq-flake
+  cp -r ${logseq} ./logseq-src
+  chmod -R +rw ./logseq-src
+  cp -r ${yarnBuild}/node_modules ./logseq-src
+  chmod -R +rw ./logseq-src/node_modules
+  cd ./logseq-src
   yarn && yarn watch
   '';
 }
