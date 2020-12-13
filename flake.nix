@@ -15,7 +15,7 @@
           };
         in
           {
-            devShell = import ./shell.nix { inherit pkgs logseq;};
+            devShell = import ./dev-shell.nix { inherit pkgs logseq;};
           }
       )
     );

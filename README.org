@@ -2,7 +2,11 @@
 * Running  Yarn watch with nix develop
 - run command as following:
 #+begin_src sh :async t :exports both :results output
+
+# flake feature
 nix develop
+# or using
+nix-shell
 #+end_src
 
 - then open browser address to localhost:3001
