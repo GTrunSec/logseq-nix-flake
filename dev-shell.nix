@@ -47,9 +47,9 @@ mkShell {
   ];
   shellHook = ''
   echo ${yarnBuild}
-  cp -ruf ${logseq} ./logseq-src
+  cp -rufT ${logseq} logseq-src
   chmod -R +rw ./logseq-src
-  cp -r ${yarnBuild}/logseq/node_modules ./logseq-src
+  cp -r ${yarnBuild}/src/logseq/node_modules ./logseq-src
   chmod -R +rw ./logseq-src/node_modules
   cd ./logseq-src
   yarn && yarn watch
