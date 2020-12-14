@@ -1,5 +1,6 @@
 {
-  description = "Data Science Environment";
+  description = "A privacy-first, open-source platform for knowledge sharing and management.";
+
   inputs = {
     flake-utils.url = "github:numtide/flake-utils";
     nixpkgs.url = "nixpkgs/7ff5e241a2b96fff7912b7d793a06b4374bd846c";
