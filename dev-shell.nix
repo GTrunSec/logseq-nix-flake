@@ -15,18 +15,18 @@ let
     nativeBuildInputs = [ yarn nodejs clojure ];
     configurePhase = ''
     export HOME=$NIX_BUILD_ROOT
-    cp -r ${nodeModules}/libexec/logseq/node_modules/ .
-    chmod -R +rw node_modules
-    cp -r ${nodeModules}/libexec/logseq/deps/logseq/node_modules/gulp-postcss/ node_modules/
-    export PATH=${nodeModules}/libexec/logseq/node_modules/.bin/:$PATH
-    yarn config --offline set yarn-offline-mirror node_modules/
+    cp -r ${nodeModules}/libexec/logseq .
+    chmod -R +rw logseq
+    export PATH=$PWD/logseq/node_modules/.bin/:$PATH
+    export NODE_PATH=$PWD/logseq/node_modules/:$PWD/logseq/deps/logseq/node_modules:$NODE_PATH
+    yarn config --offline set yarn-offline-mirror $NODE_PATH
     '';
     buildPhase = ''
      yarn --offline run gulp:build
     '';
     installPhase = ''
     mkdir -p $out
-    cp -r node_modules $out
+    cp -r logseq/node_modules $out
     '';
   };
 in

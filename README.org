@@ -10,3 +10,8 @@ nix-shell
 #+end_src
 
 - then open browser address to localhost:3001
+* Update logseq with master branch
+
+#+begin_src sh :async t :exports both :results output
+nix flake update --update-input logseq && nix-shell
+#+end_src
