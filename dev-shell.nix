@@ -9,6 +9,9 @@ let
     yarnNix = ./yarn.nix;
   };
 
+  cljsdeps = import ./deps.nix { inherit pkgs; };
+  classp  = cljsdeps.makeClasspaths {};
+
   yarnBuild = stdenv.mkDerivation rec {
     name = "logseq";
     src = logseq;
@@ -22,9 +25,13 @@ let
     yarn config --offline set yarn-offline-mirror $NODE_PATH
     '';
     buildPhase = ''
-     yarn --offline run gulp:build
+    export CLJ_CONFIG=`pwd`
+    export CLJ_CACHE=`pwd`/.cpcache
+    yarn --offline run gulp:build
      # waiting for the clj2nix repairs deps
+     #clojure -M:release app  -d ${classp}
      #yarn --offline release
+     #clojure -Scp ${classp} -M:cljs release app publishing
     '';
     installPhase = ''
     mkdir -p $out
