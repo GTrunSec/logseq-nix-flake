@@ -786,6 +786,14 @@
       };
     }
     {
+      name = "batch_processor___batch_processor_1.0.0.tgz";
+      path = fetchurl {
+        name = "batch_processor___batch_processor_1.0.0.tgz";
+        url  = "https://registry.yarnpkg.com/batch-processor/-/batch-processor-1.0.0.tgz";
+        sha1 = "75c95c32b748e0850d10c2b168f6bdbe9891ace8";
+      };
+    }
+    {
       name = "binary_extensions___binary_extensions_1.13.1.tgz";
       path = fetchurl {
         name = "binary_extensions___binary_extensions_1.13.1.tgz";
@@ -1890,6 +1898,14 @@
       };
     }
     {
+      name = "element_resize_detector___element_resize_detector_1.2.1.tgz";
+      path = fetchurl {
+        name = "element_resize_detector___element_resize_detector_1.2.1.tgz";
+        url  = "https://registry.yarnpkg.com/element-resize-detector/-/element-resize-detector-1.2.1.tgz";
+        sha1 = "b0305194447a4863155e58f13323a0aef30851d1";
+      };
+    }
+    {
       name = "elliptic___elliptic_6.5.3.tgz";
       path = fetchurl {
         name = "elliptic___elliptic_6.5.3.tgz";
@@ -2151,6 +2167,14 @@
         name = "fast_levenshtein___fast_levenshtein_1.1.4.tgz";
         url  = "https://registry.yarnpkg.com/fast-levenshtein/-/fast-levenshtein-1.1.4.tgz";
         sha1 = "e6a754cc8f15e58987aa9cbd27af66fd6f4e5af9";
+      };
+    }
+    {
+      name = "fastdom___fastdom_1.0.10.tgz";
+      path = fetchurl {
+        name = "fastdom___fastdom_1.0.10.tgz";
+        url  = "https://registry.yarnpkg.com/fastdom/-/fastdom-1.0.10.tgz";
+        sha1 = "4f2c7c9b24e7e249fc70c63131842b859b92bf09";
       };
     }
     {
@@ -5290,6 +5314,14 @@
       };
     }
     {
+      name = "react_resize_context___react_resize_context_3.0.0.tgz";
+      path = fetchurl {
+        name = "react_resize_context___react_resize_context_3.0.0.tgz";
+        url  = "https://registry.yarnpkg.com/react-resize-context/-/react-resize-context-3.0.0.tgz";
+        sha1 = "fb3c3d24a8c1cbe86d3e1b1da72a9952e462a031";
+      };
+    }
+    {
       name = "react_textarea_autosize___react_textarea_autosize_8.3.0.tgz";
       path = fetchurl {
         name = "react_textarea_autosize___react_textarea_autosize_8.3.0.tgz";
@@ -5786,6 +5818,14 @@
       };
     }
     {
+      name = "shallowequal___shallowequal_1.1.0.tgz";
+      path = fetchurl {
+        name = "shallowequal___shallowequal_1.1.0.tgz";
+        url  = "https://registry.yarnpkg.com/shallowequal/-/shallowequal-1.1.0.tgz";
+        sha1 = "188d521de95b9087404fd4dcb68b13df0ae4e7f8";
+      };
+    }
+    {
       name = "shebang_command___shebang_command_1.2.0.tgz";
       path = fetchurl {
         name = "shebang_command___shebang_command_1.2.0.tgz";
@@ -6039,6 +6079,14 @@
         name = "stream_shift___stream_shift_1.0.1.tgz";
         url  = "https://registry.yarnpkg.com/stream-shift/-/stream-shift-1.0.1.tgz";
         sha1 = "d7088281559ab2778424279b0877da3c392d5a3d";
+      };
+    }
+    {
+      name = "strictdom___strictdom_1.0.1.tgz";
+      path = fetchurl {
+        name = "strictdom___strictdom_1.0.1.tgz";
+        url  = "https://registry.yarnpkg.com/strictdom/-/strictdom-1.0.1.tgz";
+        sha1 = "189de91649f73d44d59b8432efa68ef9d2659460";
       };
     }
     {
