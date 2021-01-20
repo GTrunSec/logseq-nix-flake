@@ -1,12 +1,21 @@
 { pkgs, logseq }:
 with pkgs;
 let
+  genYarnNix = pkgs.runCommand "yarn2Nix" {
+    buildInputs = [yarn2nix];
+  } ''
+    cp -r ${logseq} logseq
+    chmod -R +rw logseq
+    cd logseq
+    yarn2nix > yarn.nix
+    cp yarn.nix $out
+  '';
   nodeModules = mkYarnPackage rec {
     name = "logseq-node-moduels";
     packageJSON = logseq + "/package.json";
     src = logseq;
     yarnLock = logseq + "/yarn.lock";
-    yarnNix = ./yarn.nix;
+    yarnNix = genYarnNix;
   };
 
   cljsdeps = import ./deps.nix { inherit pkgs; };
@@ -54,6 +63,7 @@ mkShell {
   ];
   shellHook = ''
   echo ${yarnBuild}
+  echo ${genYarnNix}
   cp -rufT ${logseq} logseq-src
   chmod -R +rw ./logseq-src
   cp -r ${yarnBuild}/src/logseq/node_modules ./logseq-src
