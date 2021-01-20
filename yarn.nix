@@ -4050,11 +4050,11 @@
       };
     }
     {
-      name = "mldoc___mldoc_0.3.3.tgz";
+      name = "mldoc___mldoc_0.3.7.tgz";
       path = fetchurl {
-        name = "mldoc___mldoc_0.3.3.tgz";
-        url  = "https://registry.yarnpkg.com/mldoc/-/mldoc-0.3.3.tgz";
-        sha1 = "e02b97d82f0907432d8db10e958d7f02a9a806ff";
+        name = "mldoc___mldoc_0.3.7.tgz";
+        url  = "https://registry.yarnpkg.com/mldoc/-/mldoc-0.3.7.tgz";
+        sha1 = "08f0ff51ab223d47279beadf89d70fbb238164ff";
       };
     }
     {

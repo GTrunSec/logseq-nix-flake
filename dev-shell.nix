@@ -3,9 +3,9 @@ with pkgs;
 let
   nodeModules = mkYarnPackage rec {
     name = "logseq-node-moduels";
-    packageJSON = ./package.json;
+    packageJSON = logseq + "/package.json";
     src = logseq;
-    yarnLock = ./yarn.lock;
+    yarnLock = logseq + "/yarn.lock";
     yarnNix = ./yarn.nix;
   };
 
