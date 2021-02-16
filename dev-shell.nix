@@ -1,27 +1,36 @@
 { pkgs, logseq }:
-with pkgs;
+with (import (pkgs.fetchFromGitHub {
+    owner = "moretea";
+    repo = "yarn2nix";
+    rev = "9e7279edde2a4e0f5ec04c53f5cd64440a27a1ae";
+    sha256 = "0zz2lrwn3y3rb8gzaiwxgz02dvy3s552zc70zvfqc0zh5dhydgn7";
+  })
+  {inherit pkgs;});
 let
-  genYarnNix = pkgs.runCommand "yarn2Nix" {
-    buildInputs = [yarn2nix];
+  genPackage = pkgs.runCommand "yarn2Nix" {
+    buildInputs = [ yarn2nix ];
   } ''
     cp -r ${logseq} logseq
     chmod -R +rw logseq
     cd logseq
-    yarn2nix > yarn.nix
-    cp yarn.nix $out
+    mkdir -p $out/bin
+    sed -i 's|fuzzysort#a66f5813825d2415b606cc69129070c4eb612ae2|fuzzysort|' package.json
+    sed -i 's|fuzzysort@git+https://github.com/getstation/fuzzysort#a66f5813825d2415b606cc69129070c4eb612ae2|fuzzysort@git+https://github.com/getstation/fuzzysort|' yarn.lock
+    cp package.json $out/package.json
+    cp yarn.lock $out/yarn.lock
   '';
-  nodeModules = mkYarnPackage rec {
+
+  nodeModules = mkYarnPackage rec{
     name = "logseq-node-moduels";
-    packageJSON = logseq + "/package.json";
+    packageJSON = genPackage + "/package.json";
     src = logseq;
-    yarnLock = logseq + "/yarn.lock";
-    yarnNix = genYarnNix;
+    yarnLock = genPackage + "/yarn.lock";
   };
 
   cljsdeps = import ./deps.nix { inherit pkgs; };
   classp  = cljsdeps.makeClasspaths {};
 
-  yarnBuild = stdenv.mkDerivation rec {
+  yarnBuild = with pkgs; stdenv.mkDerivation rec {
     name = "logseq";
     src = logseq;
     nativeBuildInputs = [ yarn nodejs clojure ];
@@ -57,13 +66,13 @@ let
     '';
   };
 in
-mkShell {
-  buildInputs = [
+pkgs.mkShell {
+  buildInputs = with pkgs;[
     yarn clojure nodejs
   ];
   shellHook = ''
   echo ${yarnBuild}
-  echo ${genYarnNix}
+  echo ${nodeModules}
   cp -rufT ${logseq} logseq-src
   chmod -R +rw ./logseq-src
   cp -r ${yarnBuild}/src/logseq/node_modules ./logseq-src
