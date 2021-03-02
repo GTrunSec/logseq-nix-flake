@@ -18,11 +18,11 @@
     "logseq": {
       "flake": false,
       "locked": {
-        "lastModified": 1614308361,
-        "narHash": "sha256-8J730Yg/1bDCjk9ZqPIC9xqoTWquBhRs408pemLrLOo=",
+        "lastModified": 1614657443,
+        "narHash": "sha256-upXNDeJw8ouuwxZD+OD1p/R4qUGb7manWdp3OiSz1gI=",
         "owner": "logseq",
         "repo": "logseq",
-        "rev": "8013295beeb929a203041837eb4ca4abd48a5467",
+        "rev": "1d618cffd6512c8016c421969955545db505c3d0",
         "type": "github"
       },
       "original": {

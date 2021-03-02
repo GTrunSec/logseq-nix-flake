@@ -16,8 +16,8 @@ let
     chmod -R +rw logseq
     cd logseq
     mkdir -p $out/bin
-    sed -i 's|fuzzysort#a66f5813825d2415b606cc69129070c4eb612ae2|fuzzysort|' package.json
-    sed -i 's|fuzzysort@git+https://github.com/getstation/fuzzysort#a66f5813825d2415b606cc69129070c4eb612ae2|fuzzysort@git+https://github.com/getstation/fuzzysort|' yarn.lock
+    # sed -i 's|fuzzysort#a66f5813825d2415b606cc69129070c4eb612ae2|fuzzysort|' package.json
+    # sed -i 's|fuzzysort@git+https://github.com/getstation/fuzzysort#a66f5813825d2415b606cc69129070c4eb612ae2|fuzzysort@git+https://github.com/getstation/fuzzysort|' yarn.lock
     cp package.json $out/package.json
     cp yarn.lock $out/yarn.lock
   '';
